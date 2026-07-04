@@ -1,5 +1,4 @@
-# NASA Landsat Alphabet Generator
-
+# GeoSpell: Satellite Imagery Name Maker
 A Python pipeline that downloads satellite imagery from NASA's "Your Name in Landsat" outreach program, audits the geographical metadata, repairs broken URLs, and generates custom name posters in PDF format.
 
 ## Setup
@@ -19,9 +18,9 @@ A Python pipeline that downloads satellite imagery from NASA's "Your Name in Lan
 ├── README.md               # Updated execution order (below)
 │
 ├── /pipeline
-│   ├── scraper.py # RUN FIRST: Downloads physical assets
+│   ├── scraper.py               # RUN FIRST: Downloads physical assets
 │   ├── metadata_scraper.py      # RUN SECOND: Performs inventory & date crawling
-│   └── hotfix_urls.py      # RUN THIRD: Targeted repair for map links
+│   └── hotfix_urls.py           # RUN THIRD: Targeted repair for map links
 │
 ├── /generator
 │   └── engine.py           # RUN FOURTH: Decodes keys & generates PDF
