@@ -1,0 +1,506 @@
+{
+    "a-0-hickman-kentucky": {
+        "letter": "A",
+        "location": "Hickman, Kentucky",
+        "coords": "36°35'20.8 N 89°20'26.9 W",
+        "date": "August 31, 2023",
+        "detail_url": "https://www.google.com/maps/place/36%C2%B035%2720.8%22N+89%C2%B020%2726.9%22W/@36.5689533,-89.4212718,11.38z/data=!4m4!3m3!8m2!3d36.5891111!4d-89.3408056?entry=ttu"
+    },
+    "a-1-farmisland-maine": {
+        "letter": "A",
+        "location": "Farm Island, Maine",
+        "coords": "45°43'43.8 N 69°46'08.9 W",
+        "date": "February 18, 2024",
+        "detail_url": "https://www.google.com/maps/place/45%C2%B043'45.4%22N+69%C2%B046'04.7%22W/@45.7292113,-69.7763592,6123m/data=!3m1!1e3!4m4!3m3!8m2!3d45.729275!4d-69.76798?entry=ttu"
+    },
+    "a-2-guakhmaz-azerbaijan": {
+        "letter": "A",
+        "location": "Lake Guakhmaz, Azerbaijan",
+        "coords": "40°39'50.8 N 47°06'36.2 E",
+        "date": "September 2, 2024",
+        "detail_url": "https://maps.app.goo.gl/tnrVaiMuFiGacH746"
+    },
+    "a-3-yukondelta-alaska": {
+        "letter": "A",
+        "location": "Yukon Delta, Alaska",
+        "coords": "62°33'17.7 N 164°56'10.3 W",
+        "date": "September 22, 2002",
+        "detail_url": "https://maps.app.goo.gl/AuARuTMTcT2ugLnq5"
+    },
+    "a-4-lake-mjøsa-norway": {
+        "letter": "A",
+        "location": "Lake Mjøsa, Norway",
+        "coords": "60°45'52.7 N 10°56'43.2 E",
+        "date": "June 24, 2024",
+        "detail_url": "https://maps.app.goo.gl/2KHYmEMruQzgRTBb9"
+    },
+    "b-0-hollabend-arkansas": {
+        "letter": "B",
+        "location": "Holla Bend, Arkansas",
+        "coords": "35°08'41.1 N 93°03'16.5 W",
+        "date": "August 4, 2014",
+        "detail_url": "https://www.google.com/maps/place/35%C2%B008'41.1%22N+93%C2%B003'16.5%22W/@35.150256,-93.0998349,20284m/data=!3m1!1e3!4m4!3m3!8m2!3d35.14475!4d-93.0545833?entry=ttu"
+    },
+    "b-1-humaitá-brazil": {
+        "letter": "B",
+        "location": "Humaitá, Brazil",
+        "coords": "7°37'00.1\"S 62°55'17.0\"W",
+        "date": "July 6, 2023",
+        "detail_url": "https://maps.app.goo.gl/BpsMZRtaDWr6jb9W8"
+    },
+    "c-0-blackrockdesert-nevada": {
+        "letter": "C",
+        "location": "Black Rock Desert, Nevada",
+        "coords": "40°47'15.8 N 119°12'13.0 W",
+        "date": "September 4, 2023",
+        "detail_url": "https://www.google.com/maps/place/40%C2%B047'15.8%22N+119%C2%B012'13.0%22W/@40.7765477,-119.2977163,26799m/data=!3m1!1e3!4m4!3m3!8m2!3d40.7877222!4d-119.2036111?entry=ttu"
+    },
+    "c-1-deceptionisland-antarctica": {
+        "letter": "C",
+        "location": "Deception, Island, Antarctica",
+        "coords": "62°57'22.3 S 60°38'32.8 W",
+        "date": "October 16, 2020",
+        "detail_url": "https://www.google.com/maps/place/62%C2%B057'22.3%22S+60%C2%B038'32.8%22W/@-62.9597921,-60.8265853,38265m/data=!3m1!1e3!4m4!3m3!8m2!3d-62.9561944!4d-60.6424444?entry=ttu"
+    },
+    "c-2-falseriver-louisiana": {
+        "letter": "C",
+        "location": "False River, Louisiana",
+        "coords": "36°35'20.8 N 89°20'26.9 W",
+        "date": "June 14, 2024",
+        "detail_url": "https://www.google.com/maps/place/30%C2%B038'39.7%22N+91%C2%B026'45.7%22W/@30.6517944,-91.5063747,22066m/data=!3m1!1e3!4m4!3m3!8m2!3d30.644357!4d-91.446029?entry=ttu"
+    },
+    "d-0-akimiskiisland-canada": {
+        "letter": "D",
+        "location": "Akimiski Island, Canada",
+        "coords": "53°00'58.5 N 81°18'24.6 W",
+        "date": "August 16, 2023",
+        "detail_url": "https://www.google.com/maps/place/53%C2%B000'58.5%22N+81%C2%B018'24.6%22W/@52.8535127,-81.6813828,147353m/data=!3m1!1e3!4m4!3m3!8m2!3d53.01625!4d-81.3068333?entry=ttu"
+    },
+    "d-1-laketandou-australia": {
+        "letter": "D",
+        "location": "Lake Tandou, Australia",
+        "coords": "32°37'17.8 S 142°04'21.4 E",
+        "date": "August 8, 2023",
+        "detail_url": "https://maps.app.goo.gl/z3kPn1HxZUxS4FMCA"
+    },
+    "e-0-firnfilledfjords-tibet": {
+        "letter": "E",
+        "location": "Firn-filled Fjords, Tibet",
+        "coords": "29°15'46.9 N 96°19'03.8 E",
+        "date": "November 16, 2014",
+        "detail_url": "https://www.google.com/maps/place/29%C2%B015'46.9%22N+96%C2%B019'03.8%22E/@29.2803917,96.192327,59727m/data=!3m1!1e3!4m13!1m8!3m7!1s0x3761317e9c4a2cc1:0x1fc12c628413da99!2sTibet,+China!3b1!8m2!3d29.6472399!4d91.11745!16zL20vMGY4bmY!3m3!8m2!3d29.26304!4d96.317724!5m1!1e4?entry=ttu"
+    },
+    "e-1-seaofokhotsk": {
+        "letter": "E",
+        "location": "Sea of Okhotsk",
+        "coords": "54°42'50.3 N 136°34'20.4 E",
+        "date": "September 24, 2021",
+        "detail_url": "https://www.google.com/maps/place/54%C2%B042'50.3%22N+136%C2%B034'20.4%22E/@54.713983,136.5674735,556m/data=!3m1!1e3!4m12!1m7!3m6!1s0x58c264a91dfb3971:0xa9181fd1ed34bb71!2sSea+of+Okhotsk!8m2!3d52.873623!4d149.3658173!16zL20vMGZ3azA!3m3!8m2!3d54.71398!4d136.572339?entry=ttu"
+    },
+    "e-2-bellonaplateau": {
+        "letter": "E",
+        "location": "Bellona Plateau",
+        "coords": "20°30'00.0 S 158°30'00.0 E",
+        "date": "February 12, 2023",
+        "detail_url": "https://www.google.com/maps/place/20%C2%B030'00.0%22S+158%C2%B030'00.0%22E/@-16.8094327,154.1932946,5.04z/data=!4m4!3m3!8m2!3d-20.5!4d158.5?entry=ttu"
+    },
+    "e-3-breiðamerkurjökull-iceland": {
+        "letter": "E",
+        "location": "Breiðamerkurjökull glacier, Iceland",
+        "coords": "64°05'45.0 N 16°21'45.6 W",
+        "date": "September 25, 2015",
+        "detail_url": "https://maps.app.goo.gl/6xoCUtSu99xvXZ8S6"
+    },
+    "f-0-matogrosso-brazil": {
+        "letter": "F",
+        "location": "Mato Grosso, Brazil",
+        "coords": "13°50'26.9 S 55°17'55.0 W",
+        "date": "July 6, 2024",
+        "detail_url": "https://maps.app.goo.gl/tXas4c27VuWi2pwk6"
+    },
+    "f-1-krugernationalpark-southafrica": {
+        "letter": "F",
+        "location": "Kruger National Park, South Africa",
+        "coords": "28°44'01.3 S 29°12'30.1 E",
+        "date": "July 7, 2024",
+        "detail_url": "https://maps.app.goo.gl/a1UArynvAqGGYMXg6"
+    },
+    "g-0-fonteboa-amazonas": {
+        "letter": "G",
+        "location": "Fonte Boa, Amazonas",
+        "coords": "2°26'30.8 S 66°16'43.7 W",
+        "date": "April 8, 2024",
+        "detail_url": "https://www.google.com/maps/place/2%C2%B026'30.8%22S+66%C2%B016'43.7%22W/@-2.4639488,-66.4453563,11z/data=!4m4!3m3!8m2!3d-2.4419!4d-66.2788?entry=ttu"
+    },
+    "h-0-southwestern-kyrgystan": {
+        "letter": "H",
+        "location": "Southwestern Kyrgyzstan",
+        "coords": "40°14'03.6 N 71°14'22.8 E",
+        "date": "August 30, 2014",
+        "detail_url": "https://maps.app.goo.gl/gRTJ6rDiiXJhT1mD9"
+    },
+    "h-1-khorinsky-district-russia": {
+        "letter": "H",
+        "location": "Khorinsky District, Russia",
+        "coords": "52°02'50.4 N 109°46'51.2 E",
+        "date": "June 9, 2023",
+        "detail_url": "https://maps.app.goo.gl/TLEGWnEGY8P3HUri9"
+    },
+    "i-0-borgarbyggð-iceland": {
+        "letter": "I",
+        "location": "Borgarbyggð, Iceland",
+        "coords": "64°45'46.4 N 22°27'28.0 W",
+        "date": "March 28, 2024",
+        "detail_url": "https://www.google.com/maps/place/64%C2%B045'46.4%22N+22%C2%B027'28.0%22W/@64.7585629,-22.5872018,27545m/data=!3m1!1e3!4m4!3m3!8m2!3d64.7628889!4d-22.4577778?entry=ttu"
+    },
+    "i-1-canandaigua-lake-newyork": {
+        "letter": "I",
+        "location": "Conesus Lake, New York",
+        "coords": "42°47'11.0 N 77°42'58.1 W",
+        "date": "April 26, 2024",
+        "detail_url": "https://maps.app.goo.gl/jNsDTfUadwb8jBVL6"
+    },
+    "i-2-etoshanationalpark-namibia": {
+        "letter": "I",
+        "location": "Etosha National Park, Namibia",
+        "coords": "18°29'15.2 S 16°10'14.6 E",
+        "date": "March 4, 2014",
+        "detail_url": "https://maps.app.goo.gl/s6ujVrXGJKnbrppH7"
+    },
+    "i-3-djebelouarkziz-morocco": {
+        "letter": "I",
+        "location": "Djebel Ouarkziz, Morocco",
+        "coords": "28°18'01.5 N 10°33'58.5 W",
+        "date": "February 6, 2019",
+        "detail_url": "https://maps.app.goo.gl/osEU3NnVtShw6CBN9"
+    },
+    "i-4-holuhraunicefield-iceland": {
+        "letter": "I",
+        "location": "Holuhraun Lava Field, Iceland",
+        "coords": "64°51'11.2 N 16°49'37.2 W",
+        "date": "September 6, 2014",
+        "detail_url": "https://www.google.com/maps/place/Holuhraun/@64.8620087,-16.8602623,5424m/data=!3m1!1e3!4m6!3m5!1s0x48ce01075c9562d5:0x56f1ec60327f3aa1!8m2!3d64.85!4d-16.83!16s%2Fm%2F011q64r3?entry=ttu&g_ep=EgoyMDI2MDYyOS4wIKXMDSoASAFQAw%3D%3D"
+    },
+    "j-0-greatbarrierreef": {
+        "letter": "J",
+        "location": "Great Barrier Reef, Australia",
+        "coords": "18°20'55.3 S 146°50'51.4 E",
+        "date": "September 1, 2023",
+        "detail_url": "https://www.google.com/maps/place/18%C2%B020'55.3%22S+146%C2%B050'51.4%22E/@-18.3013843,146.8642487,39611m/data=!3m1!1e3!4m4!3m3!8m2!3d-18.3487!4d146.8476?entry=ttu"
+    },
+    "j-1-karakayadam-turkey": {
+        "letter": "J",
+        "location": "Karakaya Dam, Turkey",
+        "coords": "38°29'37.7 N 38°26'39.5 E",
+        "date": "August 10, 2023",
+        "detail_url": "https://www.google.com/maps/place/38%C2%B029'37.7%22N+38%C2%B026'39.5%22E/@38.5489247,38.208631,112968m/data=!3m1!1e3!4m4!3m3!8m2!3d38.4938!4d38.4443?entry=ttu"
+    },
+    "j-2-lakesuperior-northamerica": {
+        "letter": "J",
+        "location": "Lake Superior, North America",
+        "coords": "46°41'10.2 N 90°23'11.5 W",
+        "date": "May 23, 2014",
+        "detail_url": "https://maps.app.goo.gl/PFWzBnFTCXwpGDKJ8"
+    },
+    "k-0-sirmiliknationalpark-canada": {
+        "letter": "K",
+        "location": "Sirmilik National Park, Canada",
+        "coords": "72°05'01.1 N 76°48'42.9 W",
+        "date": "August 3, 2015",
+        "detail_url": "https://www.google.com/maps/place/72%C2%B005'01.1%22N+76%C2%B048'42.9%22W/@72.1091739,-77.3683173,70440m/data=!3m1!1e3!4m12!1m7!3m6!1s0x4e17b70e5a3af4b1:0x1e43c34c0c4309a2!2sSirmilik+National+Park!8m2!3d73.3652488!4d-79.0152625!16zL20vMDZmeDZk!3m3!8m2!3d72.083628!4d-76.811917?entry=ttu"
+    },
+    "k-1-golmund-china": {
+        "letter": "K",
+        "location": "Golmud, China",
+        "coords": "35°36'46.3 N 95°03'45.9 E",
+        "date": "March 2, 2024",
+        "detail_url": "https://maps.app.goo.gl/UweKoxYbPbz1xbY38"
+    },
+    "l-0-nusantara-indonesia": {
+        "letter": "L",
+        "location": "Nusantara, Indonesia",
+        "coords": "0°58'18.1 S 116°41'58.9 E",
+        "date": "April 26, 2022",
+        "detail_url": "https://www.google.com/maps/place/0%C2%B058'18.1%22S+116%C2%B041'58.9%22E/@-0.9725262,116.6947405,2641m/data=!3m1!1e3!4m12!1m7!3m6!1s0x2df6c93c8bb52e15:0x238de9438b4d18a8!2z64iE7IKw7YOA6528!8m2!3d-0.9746384!4d116.7094308!16s%2Fm%2F03bw_z_!3m3!8m2!3d-0.971695!4d116.699694?entry=ttu"
+    },
+    "l-1-xinjiang-china": {
+        "letter": "L",
+        "location": "Xinjiang, China",
+        "coords": "40°04'02.8 N 77°40'00.7 E",
+        "date": "July 30, 2013",
+        "detail_url": "https://www.google.com/maps/place/40%C2%B004'02.8%22N+77%C2%B040'00.7%22E/@40.0613207,77.5606821,20116m/data=!3m1!1e3!4m7!1m2!2m1!1sTien+Shan+mountains!3m3!8m2!3d40.067453!4d77.666852?entry=ttu"
+    },
+    "l-2-reginasaskatchewan-canada": {
+        "letter": "L",
+        "location": "Regina, Saskatchewan, Canada",
+        "coords": "50°11'51.7 N 104°17'15.4 W",
+        "date": "July 23, 2019",
+        "detail_url": "https://maps.app.goo.gl/iVppLmYh44QxDr9c9"
+    },
+    "l-3-reginasaskatchewan-canada": {
+        "letter": "L",
+        "location": "Regina, Saskatchewan, Canada",
+        "coords": "50°12'41.3 N 104°43'38.1 W",
+        "date": "July 23, 2019",
+        "detail_url": "https://maps.app.goo.gl/Aa6mwzvmMJXRw3Gf8"
+    },
+    "m-0-shenandoahriver-virginia": {
+        "letter": "M",
+        "location": "Shenandoah River, Virginia",
+        "coords": "38°46'32.2 N 78°24'07.1 W",
+        "date": "August 3, 2013",
+        "detail_url": "https://www.google.com/maps/place/Shenandoah+River/@38.7773712,-78.4192219,6454m/data=!3m1!1e3!4m7!3m6!1s0x89b6047d550cb7f7:0x83e4ccba6e682c02!4b1!8m2!3d39.1019371!4d-77.9660084!16zL20vMDMzejYz?entry=ttu"
+    },
+    "m-1-potomacriver": {
+        "letter": "M",
+        "location": "Potomac River",
+        "coords": "38°46'32.2 N 78°24'07.1 W",
+        "date": "September 27, 2016",
+        "detail_url": "https://www.google.com/maps/place/Shenandoah+River/@38.7773712,-78.4192219,6454m/data=!3m1!1e3!4m7!3m6!1s0x89b6047d550cb7f7:0x83e4ccba6e682c02!4b1!8m2!3d39.1019371!4d-77.9660084!16zL20vMDMzejYz?entry=ttu"
+    },
+    "m-2-tianshanmountains-kyrgyzstan": {
+        "letter": "M",
+        "location": "Tian Shan Mountains, Kyrgyzstan",
+        "coords": "42°07'16.4 N 80°02'44.1 E",
+        "date": "August 14, 2015",
+        "detail_url": "https://maps.app.goo.gl/Ja3ZAHeuTNCRNFMN9"
+    },
+    "n-0-yapacanibolivia": {
+        "letter": "N",
+        "location": "Yapacani, Bolivia",
+        "coords": "17°18'29.7 S 63°53'19.0 W",
+        "date": "March 27, 2024",
+        "detail_url": "https://maps.app.goo.gl/5rXL3mESWj2YsTWj6"
+    },
+    "n-1-yapacanibolivia": {
+        "letter": "N",
+        "location": "Yapacani, Bolivia",
+        "coords": "17°18'29.7 S 63°53'19.0 W",
+        "date": "March 27, 2024",
+        "detail_url": "https://maps.app.goo.gl/5rXL3mESWj2YsTWj6"
+    },
+    "n-2-sãomigueldoaraguaia-brazil": {
+        "letter": "N",
+        "location": "São Miguel do Araguaia, Brazil",
+        "coords": "12°56'44.3 S 50°29'42.0 W",
+        "date": "August 2, 2024",
+        "detail_url": "https://maps.app.goo.gl/1HtmMe82x2XdabT99"
+    },
+    "o-0-craterlake-oregon": {
+        "letter": "O",
+        "location": "Crater Lake, Oregon",
+        "coords": "42°56'10.0 N 122°06'04.7 W",
+        "date": "March 18, 2023",
+        "detail_url": "https://maps.app.goo.gl/S9sJeZ6iHBVJuGu37"
+    },
+    "o-1-manicouaganreservoir": {
+        "letter": "O",
+        "location": "Manicouagan Reservoir, Canada",
+        "coords": "51°22'42.4 N 68°40'27.2 W",
+        "date": "April 6, 2024",
+        "detail_url": "https://maps.app.goo.gl/E6Rn3yeQkYuagviG7"
+    },
+    "p-0-mackenzieriverdelta-canada": {
+        "letter": "P",
+        "location": "Mackenzie River Delta, Canada",
+        "coords": "68°12'54.4 N 134°23'15.3 W",
+        "date": "November 1, 2023",
+        "detail_url": "https://www.google.com/maps/place/68%C2%B012'54.4%22N+134%C2%B023'15.3%22W/@68.2079858,-134.5221453,23980m/data=!3m1!1e3!4m4!3m3!8m2!3d68.215103!4d-134.387585?entry=ttu"
+    },
+    "p-1-riberaltabolivia": {
+        "letter": "P",
+        "location": "Riberalta, Bolivia",
+        "coords": "10°52'44.0 S 66°02'52.0 W",
+        "date": "June 24, 2024",
+        "detail_url": "https://maps.app.goo.gl/sW32pDeYpN3JQQT18"
+    },
+    "q-0-lonarcrater-india": {
+        "letter": "Q",
+        "location": "Lonar Crater, India",
+        "coords": "19°58'36.8 N 76°30'30.6 E",
+        "date": "March 9, 2024",
+        "detail_url": "https://maps.app.goo.gl/vNSZuSEAV22k2UScA"
+    },
+    "q-1-mounttambora-indonesia": {
+        "letter": "Q",
+        "location": "Mount Tambora, Indonesia",
+        "coords": "8°14'31.3 S 117°59'31.2 E",
+        "date": "June 19, 2024",
+        "detail_url": "https://maps.app.goo.gl/1KcvrspMtYDs1qSi8"
+    },
+    "r-0-lagomenendez-argentina": {
+        "letter": "R",
+        "location": "Lago Menendez, Argentina",
+        "coords": "42°41'14.9 S 71°52'21.7 W",
+        "date": "January 21, 2015",
+        "detail_url": "https://www.google.com/maps/place/42%C2%B041'14.9%22S+71%C2%B052'21.7%22W/@-42.6921215,-71.9452812,30666m/data=!3m1!1e3!4m12!1m7!3m6!1s0x961c217407edac45:0xb660993af48f583f!2sLake+Men%C3%A9ndez!8m2!3d-42.6849165!4d-71.8274846!16s%2Fg%2F120l2rkc!3m3!8m2!3d-42.687479!4d-71.872688?entry=ttu"
+    },
+    "r-1-provinceofsondrio-italy": {
+        "letter": "R",
+        "location": "Province of Sondrio, Italy",
+        "coords": "46°17'38.3 N 9°25'14.5 E",
+        "date": "June 26, 2023",
+        "detail_url": "https://maps.app.goo.gl/MDCo37rLRQGCvDJp8"
+    },
+    "r-2-florida-keys": {
+        "letter": "R",
+        "location": "Florida Keys",
+        "coords": "24°45'30.4 N 81°31'53.6 W",
+        "date": "February 15, 2024",
+        "detail_url": "https://maps.app.goo.gl/CfSnUcNriFtWBrEQ8"
+    },
+    "r-3-canyonlandsnationalpark-utah": {
+        "letter": "R",
+        "location": "Canyonlands National Park, Utah",
+        "coords": "38°26'27.8 N 109°45'03.3 W",
+        "date": "May 13, 2014",
+        "detail_url": "https://maps.app.goo.gl/Bt89EafENbXXLmPPA"
+    },
+    "s-0-mackenzieriver": {
+        "letter": "S",
+        "location": "Mackenzie River",
+        "coords": "68°25'01.0 N 134°08'35.2 W",
+        "date": "November 7, 2016",
+        "detail_url": "https://www.google.com/maps/place/Tuktoyaktuk,+NT,+Canada/@68.408019,-134.2820739,33486m/data=!3m1!1e3!4m6!3m5!1s0x5113cb935c41b04d:0x1155e872d8421ea3!8m2!3d69.445358!4d-133.034181!16zL20vMDNwOXF4?entry=ttu"
+    },
+    "s-1-ndjamena-chad": {
+        "letter": "S",
+        "location": "N’Djamena, Chad",
+        "coords": "12°00'27.7 N 15°03'46.2 E",
+        "date": "October 23, 2022",
+        "detail_url": "https://www.google.com/maps/place/12%C2%B000'27.7%22N+15%C2%B003'46.2%22E/@12.0046806,15.0451832,17158m/data=!3m1!1e3!4m13!1m8!3m7!1s0x11196053fc686ffb:0xf9442c3f64221374!2sDigangali,+Chad!3b1!8m2!3d12.0619444!4d15.0727778!16s%2Fg%2F11nmsbmc9w!3m3!8m2!3d12.007689!4d15.062824?entry=ttu"
+    },
+    "s-2-riochapare-bolivia": {
+        "letter": "S",
+        "location": "Rio Chapare, Bolivia",
+        "coords": "16°56'04.7 S 65°13'44.2 W",
+        "date": "June 20, 2023",
+        "detail_url": "https://maps.app.goo.gl/MRR8oJSdDTTBVP4z5"
+    },
+    "t-0-liwa-united arab emirates": {
+        "letter": "T",
+        "location": "Liwa, United Arab Emirates",
+        "coords": "23°10'30.0 N 53°47'52.8 E",
+        "date": "March 9, 2015",
+        "detail_url": "https://maps.app.goo.gl/ozu6s25LfPTmiXFb9"
+    },
+    "t-1-lenariverdelta": {
+        "letter": "T",
+        "location": "Lena River Delta",
+        "coords": "72°52'40.3 N 129°31'51.5 E",
+        "date": "July 13, 2021",
+        "detail_url": "https://www.google.com/maps/place/72%C2%B052'40.3%22N+129%C2%B031'51.5%22E/@72.787563,128.6593921,85488m/data=!3m1!1e3!4m12!1m7!3m6!1s0x5b1ba3a5c11a7b29:0x90c8b3da45330bba!2sLaptev+Sea!8m2!3d75.9645208!4d126.6348815!16zL20vMDI4bmRz!3m3!8m2!3d72.877867!4d129.530964?entry=ttu"
+    },
+    "u-0-canyonlandsnationalpark-utah": {
+        "letter": "U",
+        "location": "Canyonlands National Park, Utah",
+        "coords": "38°16'09.1 N 109°55'32.7 W",
+        "date": "May 13, 2014",
+        "detail_url": "https://www.google.com/maps/place/38%C2%B016'09.1%22N+109%C2%B055'32.7%22W/@38.2749009,-110.0024741,14590m/data=!3m1!1e3!4m12!1m7!3m6!1s0x8747e1ee4518a6a9:0x15a452a9c502e6aa!2sCanyonlands+National+Park!8m2!3d38.2135733!4d-109.9025345!16zL20vMDF3cTgz!3m3!8m2!3d38.269198!4d-109.925762?entry=ttu"
+    },
+    "u-1-bamforthnationalwildliferefuge-wyoming": {
+        "letter": "U",
+        "location": "Bamforth National Wildlife Refuge, Wyoming",
+        "coords": "41°19'26.0 N 105°46'13.9 W",
+        "date": "July 11, 2024",
+        "detail_url": "https://www.google.com/maps/place/Bamforth+National+Wildlife+Refuge/@41.2734513,-106.0072281,91289m/data=!3m1!1e3!4m12!1m5!3m4!2zNDHCsDIwJzE3LjUiTiAxMDXCsDQ4JzUwLjAiVw!8m2!3d41.3382!4d-105.8139!3m5!1s0x8768812b9b07cc19:0x839bb585413c393f!8m2!3d41.3777918!4d-105.7317396!16zL20vMGJnMGY5?entry=ttu"
+    },
+    "v-0-cellinaandmedunarivers-italy": {
+        "letter": "V",
+        "location": "Cellina and Meduna Rivers, Italy",
+        "coords": "46°06'41.4 N 12°45'26.6 E",
+        "date": "September 21, 2010",
+        "detail_url": "https://www.google.com/maps/place/46%C2%B006'41.4%22N+12%C2%B045'26.6%22E/@46.1123599,12.6682228,45913m/data=!3m1!1e3!4m4!3m3!8m2!3d46.1115!4d12.7574?entry=ttu"
+    },
+    "v-1-newsouthwales-australia": {
+        "letter": "V",
+        "location": "New South Wales, Australia",
+        "coords": "34°17'11.2 S 150°49'32.4 E",
+        "date": "November 5, 2013",
+        "detail_url": "https://maps.app.goo.gl/fxE1ik8qzdANidxT8"
+    },
+    "v-2-padmariver-bangladesh": {
+        "letter": "V",
+        "location": "Padma River, Bangladesh",
+        "coords": "23°21'03.9 N 90°33'06.9 E",
+        "date": "January 15, 2016",
+        "detail_url": "https://maps.app.goo.gl/sYQHYd8exhDsr5SQ7"
+    },
+    "v-3-mapleton-maine": {
+        "letter": "V",
+        "location": "Mapleton, Maine",
+        "coords": "46°32'40.5 N 68°15'06.4 W",
+        "date": "June 2, 2024",
+        "detail_url": "https://maps.app.goo.gl/8LF7PAqxNbS6egPMA"
+    },
+    "w-0-ponoyriver-russia": {
+        "letter": "W",
+        "location": "Ponoy River, Russia",
+        "coords": "67°02'10.9 N 40°20'19.3 E",
+        "date": "September 3, 2023",
+        "detail_url": "https://maps.app.goo.gl/z6n8HY91r7f4kv9G7"
+    },
+    "w-1-laprimavera-columbia": {
+        "letter": "W",
+        "location": "La Primavera, Colombia",
+        "coords": "5°26'57.9 N 69°47'57.0 W",
+        "date": "April 13, 2024",
+        "detail_url": "https://maps.app.goo.gl/fa5RwpEkAbZQU6d3A"
+    },
+    "x-0-wolstenholmefjord-greenland": {
+        "letter": "X",
+        "location": "Wolstenholme Fjord, Greenland",
+        "coords": "76°44'03.8 N 68°36'23.3 W",
+        "date": "September 2, 1973",
+        "detail_url": "https://www.google.com/maps/place/76%C2%B044'03.8%22N+68%C2%B036'23.3%22W/@76.769809,-69.2574316,78627m/data=!3m1!1e3!4m12!1m7!3m6!1s0x4e363cf35b4fee17:0x41fd8c3cf71f8024!2sWolstenholme+Fjord!8m2!3d76.6170514!4d-69.0542596!16zL20vMGJqd3dn!3m3!8m2!3d76.734386!4d-68.606478?entry=ttu"
+    },
+    "x-1-davisstrait-greenland": {
+        "letter": "X",
+        "location": "Davis Strait, Greenland",
+        "coords": "62°14'14.8 N 49°34'49.9 W",
+        "date": "September 3, 2023",
+        "detail_url": "https://www.google.com/maps/place/62%C2%B014'14.8%22N+49%C2%B034'49.9%22W/@62.2576372,-50.2124668,119807m/data=!3m1!1e3!4m4!3m3!8m2!3d62.237433!4d-49.580516?entry=ttu"
+    },
+    "x-2-sermersooqmunicipality-greenland": {
+        "letter": "X",
+        "location": "Sermersooq Municipality, Greenland",
+        "coords": "66°37'05.2 N 36°22'05.9 W",
+        "date": "August 17, 2024",
+        "detail_url": "https://maps.app.goo.gl/1P9vKFiCy3PkQSnY8"
+    },
+    "y-0-bíobíoriver-chile": {
+        "letter": "Y",
+        "location": "Bíobío River, Chile",
+        "coords": "37°16'02.4 S 72°43'42.9 W",
+        "date": "February 3, 2023",
+        "detail_url": "https://www.google.com/maps/place/37%C2%B016'02.4%22S+72%C2%B043'42.9%22W/@-37.2890838,-72.7147119,11.54z/data=!4m12!1m7!3m6!1s0x9612d6239f78768f:0x62a4a840164470ae!2zQsOtb2LDrW8gUml2ZXI!8m2!3d-37.6673574!4d-72.163673!16zL20vMDZiZmdu!3m3!8m2!3d-37.267341!4d-72.728582?entry=ttu"
+    },
+    "y-1-estuariodevirrila-peru": {
+        "letter": "Y",
+        "location": "Estuario de Virrila, Peru",
+        "coords": "5°51'53.4 S 80°43'51.6 W",
+        "date": "February 24, 2023",
+        "detail_url": "https://www.google.com/maps/place/5%C2%B051'53.4%22S+80%C2%B043'51.6%22W/@-5.8409555,-80.83445,12.13z/data=!4m12!1m7!3m6!1s0x90497ce60f8e3bc1:0x703ee5f60c9c907d!2sEstuario+de+Virrila!8m2!3d-5.7988889!4d-80.8647222!16s%2Fg%2F12ls2ksqv!3m3!8m2!3d-5.864833!4d-80.730992?entry=ttu"
+    },
+    "y-2-tasmanglacier-newzealand": {
+        "letter": "Y",
+        "location": "Tasman Glacier, New Zealand",
+        "coords": "43°31'19.4 S 170°49'53.7 E",
+        "date": "April 7, 2024",
+        "detail_url": "https://maps.app.goo.gl/vNfFAsk4VFF6pnTo7"
+    },
+    "z-0-primaveradoleste-brazil": {
+        "letter": "Z",
+        "location": "Primavera do Leste, Brazil",
+        "coords": "15°29'38.9 S 54°20'27.5 W",
+        "date": "June 29, 2024",
+        "detail_url": "https://www.google.com/maps/place/15%C2%B029'38.9%22S+54%C2%B020'27.5%22W/@-15.4976757,-54.3580248,14215m/data=!3m1!1e3!4m13!1m8!3m7!1s0x9377238863d94d8d:0xac7e6dab9bd8285e!2sPrimavera+do+Leste+-+State+of+Mato+Grosso,+Brazil!3b1!8m2!3d-15.5605334!4d-54.2950533!16s%2Fm%2F09rs3h3!3m3!8m2!3d-15.494126!4d-54.34096?entry=ttu"
+    },
+    "z-1-mohammedboudiaf-algeria": {
+        "letter": "Z",
+        "location": "Mohammed Boudiaf, Algeria",
+        "coords": "34°59'19.3 N 4°23'20.8 E",
+        "date": "March 15, 2024",
+        "detail_url": "https://maps.app.goo.gl/iFZcewDgx7niUQCC9"
+    }
+}

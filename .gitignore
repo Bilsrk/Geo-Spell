@@ -1,0 +1,14 @@
+# Ignore downloaded images and generated PDFs to keep the repo lightweight
+nasa_alphabet_database/**/*.png
+nasa_alphabet_database/**/*.jpg
+nasa_alphabet_database/**/*.jpeg
+*_Generated.pdf
+
+# Keep the folder structure and metadata database
+!nasa_alphabet_database/metadata.json
+
+# Standard Python ignores
+__pycache__/
+*.pyc
+.env
+venv/
