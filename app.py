@@ -2,6 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import os
 import base64
+import fitz  # NEW: PyMuPDF for rendering the preview safely
 from generator.engine import generate_name_pdf
 
 # 1. Page Config & Full-Bleed Layout Setup
@@ -110,35 +111,36 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Helper Function to Render PDF Preview 
+# Helper Function to Render PDF Preview as a Safe Image
 def show_pdf(file_path):
-    with open(file_path, "rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+    # 1. Open the PDF and grab the first page
+    doc = fitz.open(file_path)
+    page = doc.load_page(0)
     
-    # Removed the breaking `#toolbar=0` parameters, but kept the golden glowing wrapper!
-    pdf_display = f"""
+    # 2. Render the page to a high-resolution image
+    pix = page.get_pixmap(dpi=150)
+    img_bytes = pix.tobytes("png")
+    
+    # 3. Convert the image to Base64
+    base64_img = base64.b64encode(img_bytes).decode('utf-8')
+    
+    # 4. Inject the IMAGE into our golden container instead of the fragile PDF embed
+    img_display = f"""
     <div style="display: flex; justify-content: center; margin-top: 30px; margin-bottom: 20px;">
         <div style="
             width: 100%; 
             max-width: 450px; 
-            height: 650px; 
             border: 1px solid rgba(255, 215, 0, 0.4); 
             border-radius: 16px; 
             box-shadow: 0px 10px 30px rgba(255, 215, 0, 0.2); 
             overflow: hidden;
             background-color: #111111;
         ">
-            <embed 
-                src="data:application/pdf;base64,{base64_pdf}" 
-                width="100%" 
-                height="100%" 
-                style="border: none;" 
-                type="application/pdf">
-            </embed>
+            <img src="data:image/png;base64,{base64_img}" width="100%" style="display: block; border: none;">
         </div>
     </div>
     """
-    st.markdown(pdf_display, unsafe_allow_html=True)
+    st.markdown(img_display, unsafe_allow_html=True)
 
 # --- 3. Custom Nav Header ---
 st.markdown("""

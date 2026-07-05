@@ -12,6 +12,7 @@ A Python pipeline that downloads satellite imagery from NASA's "Your Name in Lan
 4. **`engine.py`**: Reads the final database, handles ASCII/URL-character decoding for file matching, and stitches the images and metadata into a high-resolution PDF.
 
 ## Project Structure
+'''
 /nasa-landsat-pdf-generator
 │
 ├── metadata.json           # Your clean, verified dataset
