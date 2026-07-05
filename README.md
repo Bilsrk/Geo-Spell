@@ -1,4 +1,5 @@
 # GeoSpell: Satellite Imagery Name Maker
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://geo-spell.streamlit.app/)
 A Python pipeline that downloads satellite imagery from NASA's "Your Name in Landsat" outreach program, audits the geographical metadata, repairs broken URLs, and generates custom name posters in PDF format.
 
 ## Setup
