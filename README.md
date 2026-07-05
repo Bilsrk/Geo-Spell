@@ -1,5 +1,6 @@
 # GeoSpell: Satellite Imagery Name Maker
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://geo-spell.streamlit.app/)
+
 A Python pipeline that downloads satellite imagery from NASA's "Your Name in Landsat" outreach program, audits the geographical metadata, repairs broken URLs, and generates custom name posters in PDF format.
 
 ## Setup
@@ -13,18 +14,28 @@ A Python pipeline that downloads satellite imagery from NASA's "Your Name in Lan
 
 ## Project Structure
 '''
-/nasa-landsat-pdf-generator
+## Project Structure
+
+```text
+/Geo-Spell
 │
-├── metadata.json           # Your clean, verified dataset
-├── requirements.txt        # selenium, pillow, webdriver-manager, requests
-├── README.md               # Updated execution order (below)
+├── app.py                  # Main Streamlit application
+├── metadata.json           # Clean, verified dataset
+├── requirements.txt        # Python dependencies
+├── README.md               # Project documentation
 │
-├── /pipeline
-│   ├── scraper.py               # RUN FIRST: Downloads physical assets
-│   ├── metadata_scraper.py      # RUN SECOND: Performs inventory & date crawling
-│   └── hotfix_urls.py           # RUN THIRD: Targeted repair for map links
+├── /frontend               # UI assets & components
+│   ├── style.css           # Custom styling & media queries
+│   ├── header.html         # Top navigation bar
+│   ├── footer.html         # Page footer
+│   └── globe.html          # Interactive 3D Three.js globe
 │
-├── /generator
+├── /pipeline               # Data scraping & processing scripts
+│   ├── scraper.py          # RUN FIRST: Downloads physical assets
+│   ├── metadata_scraper.py # RUN SECOND: Performs inventory & date crawling
+│   └── hotfix_urls.py      # RUN THIRD: Targeted repair for map links
+│
+├── /generator              # PDF generation logic
 │   └── engine.py           # RUN FOURTH: Decodes keys & generates PDF
 │
-└── /nasa_alphabet_database # Folder with A-Z image folders
+└── /nasa_alphabet_database # Folder with A-Z satellite imagery
