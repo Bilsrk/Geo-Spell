@@ -91,6 +91,9 @@ controls.autoRotateSpeed *= 0.25;
 // FIX 3: Disable manual rotation on mobile so the user can swipe to scroll the page!
 if (window.innerWidth < 768) {
     controls.enableRotate = false;
+
+    labelRenderer.domElement.style.pointerEvents = 'pan-y';
+    renderer.domElement.style.touchAction = 'pan-y';
 }
 
 let globalUniforms = { time: { value: 0 } };
@@ -318,23 +321,27 @@ renderer.setAnimationLoop(() => {
 
 // FIX 4: Update everything dynamically if the user flips their phone horizontally
 function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    
-    // Recalculate distance
-    let newDistance = window.innerWidth < 768 ? 24 : 14;
-    camera.position.setLength(newDistance);
-    
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    labelRenderer.setSize(window.innerWidth, window.innerHeight);
-    
-    // Re-evaluate scroll lock based on new orientation
-    if (window.innerWidth < 768) {
-        controls.enableRotate = false;
-    } else {
-        controls.enableRotate = true;
-    }
-}
+            camera.aspect = window.innerWidth / window.innerHeight;
+            
+            // Recalculate distance
+            let newDistance = window.innerWidth < 768 ? 24 : 14;
+            camera.position.setLength(newDistance);
+            
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            labelRenderer.setSize(window.innerWidth, window.innerHeight);
+            
+            // Re-evaluate scroll lock & touch-action based on new orientation
+            if (window.innerWidth < 768) {
+                controls.enableRotate = false;
+                labelRenderer.domElement.style.touchAction = 'pan-y';
+                renderer.domElement.style.touchAction = 'pan-y';
+            } else {
+                controls.enableRotate = true;
+                labelRenderer.domElement.style.touchAction = 'none';
+                renderer.domElement.style.touchAction = 'none';
+            }
+        }
 </script>
 </body>
 </html>
