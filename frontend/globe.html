@@ -53,258 +53,288 @@
     </script>
     
     <script type="module">
-        import * as THREE from "https://esm.sh/three@0.136.0";
-        import { OrbitControls } from "https://esm.sh/three@0.136.0/examples/jsm/controls/OrbitControls";
-        import { CSS2DRenderer, CSS2DObject } from 'https://esm.sh/three@0.136.0/examples/jsm/renderers/CSS2DRenderer.js';
+import * as THREE from "https://esm.sh/three@0.136.0";
+import { OrbitControls } from "https://esm.sh/three@0.136.0/examples/jsm/controls/OrbitControls";
+import { CSS2DRenderer, CSS2DObject } from 'https://esm.sh/three@0.136.0/examples/jsm/renderers/CSS2DRenderer.js';
 
-        let scene = new THREE.Scene();
-        let camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
-        camera.position.set(0.5, 0.5, 1).setLength(14);
-        
-        let renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(0x000000, 0); 
-        document.body.appendChild(renderer.domElement);
+let scene = new THREE.Scene();
+let camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
 
-        let labelRenderer = new CSS2DRenderer();
-        labelRenderer.setSize(window.innerWidth, window.innerHeight);
-        labelRenderer.domElement.style.position = 'absolute';
-        labelRenderer.domElement.style.top = '0px';
-        document.body.appendChild(labelRenderer.domElement);
+// FIX 1: Responsive Camera Distance. Pull back to 24 on mobile, stay at 14 on PC.
+let initialCamDistance = window.innerWidth < 768 ? 24 : 14;
+camera.position.set(0.5, 0.5, 1).setLength(initialCamDistance);
 
-        window.addEventListener("resize", onWindowResize);
+let renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0x000000, 0); 
+document.body.appendChild(renderer.domElement);
 
-        let controls = new OrbitControls(camera, labelRenderer.domElement);
-        controls.enablePan = false;
-        controls.minDistance = 6;
-        controls.maxDistance = 15;
-        controls.enableDamping = true;
-        controls.autoRotate = true;
-        controls.autoRotateSpeed *= 0.25;
+let labelRenderer = new CSS2DRenderer();
+labelRenderer.setSize(window.innerWidth, window.innerHeight);
+labelRenderer.domElement.style.position = 'absolute';
+labelRenderer.domElement.style.top = '0px';
+// FIX 2: Add CSS pointer-events none to the label wrapper so it doesn't block scrolling empty space
+labelRenderer.domElement.style.pointerEvents = 'none';
+document.body.appendChild(labelRenderer.domElement);
 
-        let globalUniforms = { time: { value: 0 } };
+window.addEventListener("resize", onWindowResize);
 
-        let counter = 200000;
-        let rad = 5;
-        let sph = new THREE.Spherical();
+let controls = new OrbitControls(camera, renderer.domElement);
+controls.enablePan = false;
+controls.enableZoom = false; // Disable zooming so users don't get stuck pinching
+controls.minDistance = 6;
+controls.maxDistance = 30;
+controls.enableDamping = true;
+controls.autoRotate = true;
+controls.autoRotateSpeed *= 0.25;
 
-        let r = 0;
-        let dlong = Math.PI * (3 - Math.sqrt(5));
-        let dz = 2 / counter;
-        let long = 0;
-        let z = 1 - dz / 2;
+// FIX 3: Disable manual rotation on mobile so the user can swipe to scroll the page!
+if (window.innerWidth < 768) {
+    controls.enableRotate = false;
+}
 
-        let pts = [];
-        let clr = [];
-        let c = new THREE.Color();
-        let uvs = [];
+let globalUniforms = { time: { value: 0 } };
 
-        for (let i = 0; i < counter; i++) {
-            r = Math.sqrt(1 - z * z);
-            let p = new THREE.Vector3(
-                Math.cos(long) * r, z, -Math.sin(long) * r
-            ).multiplyScalar(rad);
-            pts.push(p);
-            z = z - dz;
-            long = long + dlong;
+let counter = 200000;
+let rad = 5;
+let sph = new THREE.Spherical();
 
-            c.setHSL(0.13, 0.8, Math.random() * 0.3 + 0.4);
-            c.toArray(clr, i * 3);
+let r = 0;
+let dlong = Math.PI * (3 - Math.sqrt(5));
+let dz = 2 / counter;
+let long = 0;
+let z = 1 - dz / 2;
 
-            sph.setFromVector3(p);
-            uvs.push((sph.theta + Math.PI) / (Math.PI * 2), 1.0 - sph.phi / Math.PI);
-        }
+let pts = [];
+let clr = [];
+let c = new THREE.Color();
+let uvs = [];
 
-        let g = new THREE.BufferGeometry().setFromPoints(pts);
-        g.setAttribute("color", new THREE.Float32BufferAttribute(clr, 3));
-        g.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
-        let m = new THREE.PointsMaterial({
-            size: 0.1,
-            vertexColors: true,
-            onBeforeCompile: (shader) => {
-                shader.uniforms.globeTexture = {
-                    value: new THREE.TextureLoader().load(imgData)
-                };
-                shader.vertexShader = `
-                    uniform sampler2D globeTexture;
-                    varying float vVisibility;
-                    varying vec3 vNormal;
-                    varying vec3 vMvPosition;
-                    ${shader.vertexShader}
-                `.replace(
-                    `gl_PointSize = size;`,
-                    `
-                    vVisibility = texture(globeTexture, uv).g; 
-                    gl_PointSize = size * (vVisibility < 0.5 ? 1. : 0.75); 
-                    vNormal = normalMatrix * normalize(position);
-                    vMvPosition = -mvPosition.xyz;
-                    gl_PointSize *= 0.4 + (dot(normalize(vMvPosition), vNormal) * 0.6); 
-                    `
-                );
-                shader.fragmentShader = `
-                    varying float vVisibility;
-                    varying vec3 vNormal;
-                    varying vec3 vMvPosition;
-                    ${shader.fragmentShader}
-                `.replace(
-                    `vec4 diffuseColor = vec4( diffuse, opacity );`,
-                    `
-                    bool circ = length(gl_PointCoord - 0.5) > 0.5; 
-                    bool vis = dot(vMvPosition, vNormal) < 0.; 
-                    if (circ || vis) discard;
-                    
-                    vec3 col = diffuse + (vVisibility > 0.5 ? 0.5 : 0.); 
-                    
-                    vec4 diffuseColor = vec4( col, opacity );
-                    `
-                );
-            }
-        });
-        let globe = new THREE.Points(g, m);
-        scene.add(globe);
+for (let i = 0; i < counter; i++) {
+    r = Math.sqrt(1 - z * z);
+    let p = new THREE.Vector3(
+        Math.cos(long) * r, z, -Math.sin(long) * r
+    ).multiplyScalar(rad);
+    pts.push(p);
+    z = z - dz;
+    long = long + dlong;
 
-        let icshdrn = new THREE.Mesh(
-            new THREE.IcosahedronGeometry(rad, 1), 
-            new THREE.MeshBasicMaterial({color: 0x886600, wireframe: true, transparent: true, opacity: 0.15})
+    c.setHSL(0.13, 0.8, Math.random() * 0.3 + 0.4);
+    c.toArray(clr, i * 3);
+
+    sph.setFromVector3(p);
+    uvs.push((sph.theta + Math.PI) / (Math.PI * 2), 1.0 - sph.phi / Math.PI);
+}
+
+let g = new THREE.BufferGeometry().setFromPoints(pts);
+g.setAttribute("color", new THREE.Float32BufferAttribute(clr, 3));
+g.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
+let m = new THREE.PointsMaterial({
+    size: 0.1,
+    vertexColors: true,
+    onBeforeCompile: (shader) => {
+        shader.uniforms.globeTexture = {
+            value: new THREE.TextureLoader().load(imgData)
+        };
+        shader.vertexShader = `
+            uniform sampler2D globeTexture;
+            varying float vVisibility;
+            varying vec3 vNormal;
+            varying vec3 vMvPosition;
+            ${shader.vertexShader}
+        `.replace(
+            `gl_PointSize = size;`,
+            `
+            vVisibility = texture(globeTexture, uv).g; 
+            gl_PointSize = size * (vVisibility < 0.5 ? 1. : 0.75); 
+            vNormal = normalMatrix * normalize(position);
+            vMvPosition = -mvPosition.xyz;
+            gl_PointSize *= 0.4 + (dot(normalize(vMvPosition), vNormal) * 0.6); 
+            `
         );
-        globe.add(icshdrn);
-
-        const markerCount = 30;
-        let markerInfo = []; 
-        let gMarker = new THREE.PlaneGeometry();
-        
-        let mMarker = new THREE.MeshBasicMaterial({
-            color: 0xffffff,
-            onBeforeCompile: (shader) => {
-                shader.uniforms.time = globalUniforms.time;
-                shader.vertexShader = `
-                    attribute float phase;
-                    varying float vPhase;
-                    ${shader.vertexShader}
-                `.replace(
-                    `#include <begin_vertex>`,
-                    `#include <begin_vertex>
-                    vPhase = phase; 
-                    `
-                );
-                shader.fragmentShader = `
-                    uniform float time;
-                    varying float vPhase;
-                    ${shader.fragmentShader}
-                `.replace(
-                    `vec4 diffuseColor = vec4( diffuse, opacity );`,
-                    `
-                    vec2 lUv = (vUv - 0.5) * 2.;
-                    float val = 0.;
-                    float lenUv = length(lUv);
-                    val = max(val, 1. - step(0.25, lenUv)); 
-                    val = max(val, step(0.4, lenUv) - step(0.5, lenUv)); 
-                    
-                    float tShift = fract(time * 0.5 + vPhase);
-                    val = max(val, step(0.4 + (tShift * 0.6), lenUv) - step(0.5 + (tShift * 0.5), lenUv)); 
-                    
-                    if (val < 0.5) discard;
-                    
-                    vec4 diffuseColor = vec4( diffuse, opacity );`
-                );
-            }
-        });
-        mMarker.defines = { USE_UV: " " }; 
-        let markers = new THREE.InstancedMesh(gMarker, mMarker, markerCount);
-
-        let dummy = new THREE.Object3D();
-        let phase = [];
-        for (let i = 0; i < markerCount; i++) {
-            dummy.position.randomDirection().setLength(rad + 0.1);
-            dummy.lookAt(dummy.position.clone().setLength(rad + 1));
-            dummy.updateMatrix();
-            markers.setMatrixAt(i, dummy.matrix);
-            phase.push(Math.random());
-
-            markerInfo.push({
-                id: i + 1,
-                mag: THREE.MathUtils.randInt(1, 10),
-                crd: dummy.position.clone()
-            });
-        }
-        gMarker.setAttribute("phase", new THREE.InstancedBufferAttribute(new Float32Array(phase), 1));
-        scene.add(markers);
-
-        let labelDiv = document.getElementById("markerLabel");
-        let closeBtn = document.getElementById("closeButton");
-        closeBtn.addEventListener("pointerdown", event => {
-            labelDiv.classList.add("hidden");
-        });
-        
-        let label = new CSS2DObject(labelDiv);
-        label.userData = {
-            cNormal: new THREE.Vector3(),
-            cPosition: new THREE.Vector3(),
-            mat4: new THREE.Matrix4(),
-            trackVisibility: () => { 
-                let ud = label.userData;
-                ud.cNormal.copy(label.position).normalize().applyMatrix3(globe.normalMatrix);
-                ud.cPosition.copy(label.position).applyMatrix4(ud.mat4.multiplyMatrices(camera.matrixWorldInverse, globe.matrixWorld));
-                let d = ud.cPosition.negate().normalize().dot(ud.cNormal);
-                d = smoothstep(0.2, 0.7, d);
-                label.element.style.opacity = d;
-                
-                function smoothstep (min, max, value) {
-                    var x = Math.max(0, Math.min(1, (value-min)/(max-min)));
-                    return x*x*(3 - 2*x);
-                };
-            }
-        }
-        scene.add(label);
-
-        let pointer = new THREE.Vector2();
-        let raycaster = new THREE.Raycaster();
-        let intersections;
-        let divID = document.getElementById("idNum");
-        let divMag = document.getElementById("magnitude");
-        let divCrd = document.getElementById("coordinates");
-        
-        window.addEventListener("pointerdown", event => {
-            pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-            pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-            raycaster.setFromCamera(pointer, camera);
-            intersections = raycaster.intersectObject(markers).filter(m => {
-                return (m.uv.subScalar(0.5).length() * 2) < 0.25; 
-            });
+        shader.fragmentShader = `
+            varying float vVisibility;
+            varying vec3 vNormal;
+            varying vec3 vMvPosition;
+            ${shader.fragmentShader}
+        `.replace(
+            `vec4 diffuseColor = vec4( diffuse, opacity );`,
+            `
+            bool circ = length(gl_PointCoord - 0.5) > 0.5; 
+            bool vis = dot(vMvPosition, vNormal) < 0.; 
+            if (circ || vis) discard;
             
-            if (intersections.length > 0) {
-                let iid = intersections[0].instanceId;
-                let mi = markerInfo[iid];
-                divID.innerHTML = `SAT-ID: <span style="color:#FFF">${mi.id}</span>`;
-                divMag.innerHTML = `SIGNAL: <span style="color:#FFF">LVL-${mi.mag}</span>`;
-                divCrd.innerHTML = `COORD: <span style="color:#FFF">${mi.crd.x.toFixed(2)}, ${mi.crd.y.toFixed(2)}</span>`;
-                
-                label.position.copy(mi.crd);
-                label.element.animate([
-                    {width: "0px", height: "0px", marginTop: "0px", marginLeft: "0px"},
-                    {width: "230px", height: "48px", marginTop: "-25px", marginLeft: "120px"}
-                ],{ duration: 250 });
-                label.element.classList.remove("hidden");
-            }
-        });
+            vec3 col = diffuse + (vVisibility > 0.5 ? 0.5 : 0.); 
+            
+            vec4 diffuseColor = vec4( col, opacity );
+            `
+        );
+    }
+});
+let globe = new THREE.Points(g, m);
+scene.add(globe);
 
-        let clock = new THREE.Clock();
+let icshdrn = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(rad, 1), 
+    new THREE.MeshBasicMaterial({color: 0x886600, wireframe: true, transparent: true, opacity: 0.15})
+);
+globe.add(icshdrn);
 
-        renderer.setAnimationLoop(() => {
-            let t = clock.getElapsedTime();
-            globalUniforms.time.value = t;
-            label.userData.trackVisibility();
-            controls.update();
-            renderer.render(scene, camera);
-            labelRenderer.render(scene, camera);
-        });
+const markerCount = 30;
+let markerInfo = []; 
+let gMarker = new THREE.PlaneGeometry();
 
-        function onWindowResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            labelRenderer.setSize(window.innerWidth, window.innerHeight);
-        }
-    </script>
+let mMarker = new THREE.MeshBasicMaterial({
+    color: 0xffffff,
+    onBeforeCompile: (shader) => {
+        shader.uniforms.time = globalUniforms.time;
+        shader.vertexShader = `
+            attribute float phase;
+            varying float vPhase;
+            ${shader.vertexShader}
+        `.replace(
+            `#include <begin_vertex>`,
+            `#include <begin_vertex>
+            vPhase = phase; 
+            `
+        );
+        shader.fragmentShader = `
+            uniform float time;
+            varying float vPhase;
+            ${shader.fragmentShader}
+        `.replace(
+            `vec4 diffuseColor = vec4( diffuse, opacity );`,
+            `
+            vec2 lUv = (vUv - 0.5) * 2.;
+            float val = 0.;
+            float lenUv = length(lUv);
+            val = max(val, 1. - step(0.25, lenUv)); 
+            val = max(val, step(0.4, lenUv) - step(0.5, lenUv)); 
+            
+            float tShift = fract(time * 0.5 + vPhase);
+            val = max(val, step(0.4 + (tShift * 0.6), lenUv) - step(0.5 + (tShift * 0.5), lenUv)); 
+            
+            if (val < 0.5) discard;
+            
+            vec4 diffuseColor = vec4( diffuse, opacity );`
+        );
+    }
+});
+mMarker.defines = { USE_UV: " " }; 
+let markers = new THREE.InstancedMesh(gMarker, mMarker, markerCount);
+
+let dummy = new THREE.Object3D();
+let phase = [];
+for (let i = 0; i < markerCount; i++) {
+    dummy.position.randomDirection().setLength(rad + 0.1);
+    dummy.lookAt(dummy.position.clone().setLength(rad + 1));
+    dummy.updateMatrix();
+    markers.setMatrixAt(i, dummy.matrix);
+    phase.push(Math.random());
+
+    markerInfo.push({
+        id: i + 1,
+        mag: THREE.MathUtils.randInt(1, 10),
+        crd: dummy.position.clone()
+    });
+}
+gMarker.setAttribute("phase", new THREE.InstancedBufferAttribute(new Float32Array(phase), 1));
+scene.add(markers);
+
+let labelDiv = document.getElementById("markerLabel");
+// Re-enable pointer events just for the label so the close button works
+labelDiv.style.pointerEvents = 'auto'; 
+
+let closeBtn = document.getElementById("closeButton");
+closeBtn.addEventListener("pointerdown", event => {
+    labelDiv.classList.add("hidden");
+});
+
+let label = new CSS2DObject(labelDiv);
+label.userData = {
+    cNormal: new THREE.Vector3(),
+    cPosition: new THREE.Vector3(),
+    mat4: new THREE.Matrix4(),
+    trackVisibility: () => { 
+        let ud = label.userData;
+        ud.cNormal.copy(label.position).normalize().applyMatrix3(globe.normalMatrix);
+        ud.cPosition.copy(label.position).applyMatrix4(ud.mat4.multiplyMatrices(camera.matrixWorldInverse, globe.matrixWorld));
+        let d = ud.cPosition.negate().normalize().dot(ud.cNormal);
+        d = smoothstep(0.2, 0.7, d);
+        label.element.style.opacity = d;
+        
+        function smoothstep (min, max, value) {
+            var x = Math.max(0, Math.min(1, (value-min)/(max-min)));
+            return x*x*(3 - 2*x);
+        };
+    }
+}
+scene.add(label);
+
+let pointer = new THREE.Vector2();
+let raycaster = new THREE.Raycaster();
+let intersections;
+let divID = document.getElementById("idNum");
+let divMag = document.getElementById("magnitude");
+let divCrd = document.getElementById("coordinates");
+
+window.addEventListener("pointerdown", event => {
+    // If they clicked the UI, don't cast a ray
+    if(event.target.id === "closeButton" || event.target.closest('#markerLabel')) return;
+
+    pointer.x = ( event.clientX / window.innerWidth ) * 2 - 1;
+    pointer.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
+    raycaster.setFromCamera(pointer, camera);
+    intersections = raycaster.intersectObject(markers).filter(m => {
+        return (m.uv.subScalar(0.5).length() * 2) < 0.25; 
+    });
+    
+    if (intersections.length > 0) {
+        let iid = intersections[0].instanceId;
+        let mi = markerInfo[iid];
+        divID.innerHTML = `SAT-ID: <span style="color:#FFF">${mi.id}</span>`;
+        divMag.innerHTML = `SIGNAL: <span style="color:#FFF">LVL-${mi.mag}</span>`;
+        divCrd.innerHTML = `COORD: <span style="color:#FFF">${mi.crd.x.toFixed(2)}, ${mi.crd.y.toFixed(2)}</span>`;
+        
+        label.position.copy(mi.crd);
+        label.element.animate([
+            {width: "0px", height: "0px", marginTop: "0px", marginLeft: "0px"},
+            {width: "230px", height: "48px", marginTop: "-25px", marginLeft: "120px"}
+        ],{ duration: 250 });
+        label.element.classList.remove("hidden");
+    }
+});
+
+let clock = new THREE.Clock();
+
+renderer.setAnimationLoop(() => {
+    let t = clock.getElapsedTime();
+    globalUniforms.time.value = t;
+    label.userData.trackVisibility();
+    controls.update();
+    renderer.render(scene, camera);
+    labelRenderer.render(scene, camera);
+});
+
+// FIX 4: Update everything dynamically if the user flips their phone horizontally
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    
+    // Recalculate distance
+    let newDistance = window.innerWidth < 768 ? 24 : 14;
+    camera.position.setLength(newDistance);
+    
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    labelRenderer.setSize(window.innerWidth, window.innerHeight);
+    
+    // Re-evaluate scroll lock based on new orientation
+    if (window.innerWidth < 768) {
+        controls.enableRotate = false;
+    } else {
+        controls.enableRotate = true;
+    }
+}
+</script>
 </body>
 </html>
